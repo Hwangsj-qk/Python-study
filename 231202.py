@@ -1,33 +1,5 @@
-''' 23 - 12 - 02 강의 자료 '''
 import matplotlib.pyplot as plt
 import numpy as np
-
-'''
--Review 
-1. 패키지 로드
-import 패키지명 as 별명
-import pandas as pd
-from matplotlib.pyplot as plt
-
-2. 데이터 불러오기
-mpg = pd.read_csv(경로 + 파일명)
-
-3. 데이터 파악 함수
-    1) head()
-    2) tail()
-    3) shape
-    4) info() - 속성
-    5) describe() - 요약통계량
-
-4. 파생변수 생성
-    1) mpg['total'] = (mpg['cty'] + mpg['hwy'])/2
-    2) mpg['test'] = np.where(mpg['total'] >= 20, 'pass', 'fail') # 조건문 활용
-
-5. 빈도 확인
-count_test = mpg['test'].value_counts() # 빈도표 생성
-count_test.plot.bar(rot=0) # 빈도 막대 그래프 생성
-'''
-# --------------------------------------------------------------------------------------
 
 '''
 데이터 가공 - 데이터 전처리
