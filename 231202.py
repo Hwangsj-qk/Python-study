@@ -1,23 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-'''
-데이터 가공 - 데이터 전처리
--> 분석에 적합하게 데이터를 가공하는 작업
-'''
-
-'''
-- 데이터 가공 함수
-1. query() : 행 추출
-2. 데이터명[] : 열 추출
-3. sort_values() : 정렬
-4. groupby() : 집단별로 나누기
-5. assign() : 변수 추가
-6. agg() : 통계치 산출 - 평균, 최대값 ... 
-7. merge() : 데이터 합치기 (열)
-8. concat() : 데이터 합치기 (행)
-'''
-
 ### 조건에 맞는 데이터 추출
 import pandas as pd
 path = 'C:/Python_Data/'
@@ -40,8 +23,6 @@ result4 = exam.query('english >= 80')
 # print(result4)
 
 ## 여러 조건을 충족하는 행 추출
-''' 그리고(and)를 의미하는 & 기호를 쓰면 여러 조건을 나열할 수 있다. 
-    또는(or)을 의미하는 | 기호를 쓰면 어려 조건을 나열할 수 있다.'''
 result5 = exam.query('nclass == 1 & math >= 50')
 # print(result5)
 
@@ -70,27 +51,6 @@ result8 = df.query('s == "F"')
 # print(result8)
 result8 = df.query('s == "M" & country ==0')
 # print(result8)
-
-'''
-- 파이썬에서 사용하는 기호
-1. 논리 연산자
-    1)  <  : 작다
-    2) <= : 작거나 같다
-    3) == : 같다
-    4) != : 같지 않다
-    5) | : 또는
-    6) & : 그리고
-    7) in : 포함 연산자, 매칭 확인
-
-2. 산술 연산자
-    1) +
-    2) -
-    3) * : 곱하기
-    4) ** : 제곱
-    5) / : 나누기
-    6) // : 나눗셈의 몫
-    7) % : 나눗셈의 나머지
-'''
 
 # a = pd.read_csv(path + 'mpg.csv')
 # print(a)
@@ -165,16 +125,6 @@ c = exam.groupby('nclass') \
          n = ('nclass', 'count')) # 학생 수 (빈도)
 # print(c)
 
-'''
-- agg() 함수에 자주 사용하는 요약 통계량 함수
-1. mean()
-2. std() : 표준편차
-3. sum()
-4. median()
-5. max(), min() : 최대값, 최소값
-6. count()
-'''
-
 ### 모든 변수의 요약통계량 구하는 방법
 d = exam.groupby('nclass').mean()
 # print(d)
@@ -240,10 +190,6 @@ all = pd.concat([a, b])
 # print(all)
 # -----------------------------------------------------------------------------
 ''' 데이터 정제 - 데이터 오류를 찾아내는 과정 '''
-'''
-1 . 결측치 : 누락된 값, 비어 있는 값
--> 파이썬에서 결측치는 NaN 으로 표시가 된다.
-'''
 
 ### 결측치 찾기
 import numpy as np
@@ -660,21 +606,10 @@ region_ageg.assign(proportion = region_ageg['proportion'] * 100) \
 ''' 
 텍스트 마이닝 : 문자로 된 데이터에서 가치 있는 정보를 얻어 내는 분석 기법
 
-1. 형태소 분석 : 문장을 구성하는 어절들이 어떤 품사인지 파악하는 작업
-
-2. 운영 체제 버전에 맞는 JAVA 설치 
-
-3. 의존성 패키지 설치 = pip install jpype1
-
-4. pip install konlpy
 '''
 
 ### 연설문 로드
-''' 
-파이썬에서 텍스트 파일을 읽어올때 open() 함수를 쓰면 된다. 
-인코딩 : 컴퓨터가 문자를 표현하는 방식, 문서마다 인코딩 방식이 다르기 떄문에 문서 파일과
-        프로그램의 인코딩이 맞지 않으면 문자가 깨지게 된다.
-'''
+# ※ 파이썬에서 텍스트 파일을 읽어올 때 open() 함수 사용
 moon = open(path+'speech_moon.txt', encoding='UTF-8').read()
 # print(moon)
 
@@ -683,8 +618,6 @@ import re
 moon = re.sub('[^가-힣]', ' ', moon)
 '''
 [^가-힣] : 한글이 아닌 모든 문자라는 뜻을 가진 정규 표현식
-정규 표현식 : 특정한 규칙을 가진 문자열을 표현하는 언어, 이메일 주소, 전화번호 처럼
-            특정한 규칙으로 되어있는 문자를 찾거나 수정할 때 정규 표현식을 쓴다.
 '''
 # print(moon)
 
